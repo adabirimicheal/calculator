@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="calculator">
+    <h1>APEX Calculator</h1>
+
+    <div class="display">
+      <label class="visually-hidden" for="input1">Calculator display</label>
+      <input readonly id="input1" value="0" class="current-operand" type="text">
+    </div>
+
+    <div class="keypad">
+      <button class="btn btn-function" id="clear" type="button">AC</button>
+      <button class="btn btn-function" id="cancel" type="button" aria-label="Delete last digit">X</button>
+      <button class="btn btn-function" id="percentage" type="button">%</button>
+      <button class="btn btn-operator" id="divide" type="button">÷</button>
+
+      <button class="btn" id="seven" type="button">7</button>
+      <button class="btn" id="eight" type="button">8</button>
+      <button class="btn" id="nine" type="button">9</button>
+      <button class="btn btn-operator" id="multiply" type="button">*</button>
+
+      <button class="btn" id="four" type="button">4</button>
+      <button class="btn" id="five" type="button">5</button>
+      <button class="btn" id="six" type="button">6</button>
+      <button class="btn btn-operator" id="subtract" type="button">−</button>
+
+      <button class="btn" id="one" type="button">1</button>
+      <button class="btn" id="two" type="button">2</button>
+      <button class="btn" id="three" type="button">3</button>
+      <button class="btn btn-operator" id="add" type="button">+</button>
+
+      <button class="btn" id="zero" type="button">0</button>
+      <button class="btn" id="decimal" type="button">.</button>
+      <button class="btn btn-equals" id="eq" type="button">=</button>
+    </div>
+    <span><p>MADE BY MICHEAL</p></span>
+  </main>
+</body>
+</html>
