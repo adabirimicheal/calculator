@@ -28,13 +28,111 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: linear-gradient;
+  position: relative;
+  isolation: isolate;
+  background: #080b20;
   /* background: var(--bg); */
   font-family: "Segoe UI", Arial, sans-serif;
   color: var(--text);
   padding: 16px;
 }
+/* Background layer */
+.gradient-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
 
+    background: linear-gradient(
+        -45deg,
+        #080b20,
+        #000000,
+        #0d011c,
+        #022d3d7c,
+        #01072f
+    );
+
+    background-size: 400% 400%;
+    animation: gradientMove 5s ease infinite;
+}
+
+/* Glowing floating orbs */
+.gradient-orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+
+    animation: orbFloat 10s ease-in-out infinite alternate;
+}
+
+.orb-one {
+    background: #7c3aed;
+    top: 5%;
+    left: 5%;
+}
+
+.orb-two {
+    background: #06b6d4;
+    bottom: 0;
+    right: 5%;
+    animation-delay: -3s;
+}
+
+.orb-three {
+    background: #2563eb;
+    top: 40%;
+    left: 45%;
+    width: 220px;
+    height: 220px;
+    animation-delay: -6s;
+}
+
+/* Moving gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating glow animation */
+@keyframes orbFloat {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(60px, -40px) scale(1.2);
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    .gradient-orb {
+        width: 180px;
+        height: 180px;
+        filter: blur(65px);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-background,
+    .gradient-orb {
+        animation: none;
+    }
+}
 /* ---------- Calculator body ---------- */
 .calculator {
   width: 100%;
