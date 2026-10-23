@@ -13,6 +13,8 @@ calculator/
 
 ## Features
 
+- Animated APEX TECH loading screen with a progress bar that fades into the calculator
+- Black and gold theme that matches the APEX TECH logo
 - Calculator interface displayed in the browser
 - HTML for the page structure
 - CSS for the design and layout

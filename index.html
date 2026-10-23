@@ -4,12 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calculator</title>
+  <title>APEX Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 
-<body>
+<body class="is-loading">
+  <!-- Loading screen: shows the APEX TECH logo, then fades away (see script.js) -->
+  <div class="loader" id="loader" role="status" aria-label="Loading">
+    <svg class="loader-logo" viewBox="120 90 960 690" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="lL" gradientUnits="userSpaceOnUse" x1="0" y1="110" x2="0" y2="760">
+          <stop offset="0" stop-color="#FBE9A8" /><stop offset="0.45" stop-color="#E3B94C" /><stop offset="1" stop-color="#A9791D" />
+        </linearGradient>
+        <linearGradient id="lR" gradientUnits="userSpaceOnUse" x1="0" y1="110" x2="0" y2="760">
+          <stop offset="0" stop-color="#E9C766" /><stop offset="0.5" stop-color="#C99A2E" /><stop offset="1" stop-color="#7F5712" />
+        </linearGradient>
+        <linearGradient id="lP" gradientUnits="userSpaceOnUse" x1="0" y1="540" x2="0" y2="730">
+          <stop offset="0" stop-color="#FFF0BC" /><stop offset="1" stop-color="#E3B94C" />
+        </linearGradient>
+      </defs>
+      <polygon class="l-left" points="548,110 600,110 600,307 375,760 225,760" fill="url(#lL)" />
+      <polygon class="l-right" points="652,110 600,110 600,307 825,760 975,760" fill="url(#lR)" />
+      <polyline class="l-chevron" points="508,562 596,632 508,702" fill="none" stroke="url(#lP)" stroke-width="36" stroke-miterlimit="10" />
+      <rect class="l-cursor" x="640" y="686" width="96" height="32" fill="url(#lP)" />
+      <g fill="none" stroke="#C9A24A" stroke-width="7">
+        <polyline class="l-trace" points="256,700 178,700 150,672" />
+        <polyline class="l-trace" points="296,620 214,620 186,592" />
+        <polyline class="l-trace" points="944,700 1022,700 1050,672" />
+        <polyline class="l-trace" points="904,620 986,620 1014,592" />
+      </g>
+      <g fill="#E3B94C">
+        <circle class="l-node" cx="142" cy="664" r="13" />
+        <circle class="l-node l-n2" cx="178" cy="584" r="13" />
+        <circle class="l-node l-n3" cx="1058" cy="664" r="13" />
+        <circle class="l-node l-n4" cx="1022" cy="584" r="13" />
+      </g>
+      <line x1="600" y1="100" x2="600" y2="312" stroke="#0B0B0C" stroke-width="8" />
+    </svg>
+
+    <div class="loader-word">APEX TECH</div>
+
+    <div class="loader-bar">
+      <div class="loader-track"><div class="loader-fill" id="loader-fill"></div></div>
+      <div class="loader-status" id="loader-status">LOADING 0%</div>
+    </div>
+  </div>
+
   <main class="calculator">
     <div class="gradient-background">
       <div class="gradient-orb orb-one"></div>

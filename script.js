@@ -160,3 +160,34 @@ percentage.addEventListener("click", () => {
 });
 
 updateScreen();
+
+/* ---------- Loading screen ---------- */
+const loader = document.querySelector("#loader");
+const loaderFill = document.querySelector("#loader-fill");
+const loaderStatus = document.querySelector("#loader-status");
+
+let loadPercent = 0;
+
+// Every 40 milliseconds, add a small random amount to the progress.
+const loadTimer = setInterval(() => {
+  loadPercent += Math.random() * 2.2;
+
+  if (loadPercent >= 100) {
+    loadPercent = 100;
+    clearInterval(loadTimer);
+    finishLoading();
+  }
+
+  loaderFill.style.width = `${loadPercent}%`;
+  loaderStatus.textContent = `LOADING ${Math.floor(loadPercent)}%`;
+}, 40);
+
+function finishLoading() {
+  loaderStatus.textContent = "READY";
+
+  // Wait a moment, then fade the loading screen out and show the calculator.
+  setTimeout(() => {
+    loader.classList.add("loader-hidden");
+    document.body.classList.remove("is-loading");
+  }, 500);
+}
